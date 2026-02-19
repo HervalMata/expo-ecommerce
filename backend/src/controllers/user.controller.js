@@ -7,6 +7,10 @@ export async function addAddress(req, res) {
 
         const user = req.user;
 
+        if (!fullName || !streetAddress || !city || !state || !zipCode || !country || !phoneNumber) {
+            return res.status(400).json({ message: 'All address fields are required' });
+        }
+
        if (isDefault) {
             user.addresses.forEach(addr => addr.isDefault = false);
         }
@@ -126,7 +130,7 @@ export async function addWishlist(req, res) {
 export async function removeFromWishlist(req, res) {
     try {
         const { productId } = req.body;
-        const user = req.user;
+        const user = await User.findById(req.user._id).populate('wishlist');
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
