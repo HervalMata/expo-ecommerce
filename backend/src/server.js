@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import { clerkMiddleware } from "@clerk/express";
 import { serve } from "inngest/express";
+import cors from "cors";
 
 import { functions, inngest } from "./config/inngest.js";
 
@@ -14,6 +15,7 @@ import userRoutes from "./routes/user.routes.js";
 import orderRoutes from "./routes/order.routes.js";
 import productRoutes from "./routes/product.routes.js";
 import reviewRoutes from "./routes/review.routes.js";
+import cartRoutes from "./routes/cart.routes.js";
 
 const app = express();
 
@@ -22,6 +24,10 @@ const __dirname = path.resolve();
 app.use(express.json());
 
 app.use(clerkMiddleware());
+app.use(cors({
+    origin: ENV.CLIENT_URL,
+    credentials: true
+}));
 
 app.use("/api/inggest", serve({ client: inngest, functions }));
 
@@ -30,6 +36,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/reviews", reviewRoutes);
+app.use("/api/cart", cartRoutes);
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "Success" });
