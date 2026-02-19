@@ -10,6 +10,7 @@ import { ENV } from "./config/env.js";
 import { connectDB } from "./config/db.js";
 import { inngest } from "./config/inngest.js";
 import adminRoutes from "./routes/admin.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(clerkMiddleware());
 app.use("/api/inggest", serve({ client: inngest, functions }));
 
 app.use("/api/admin", adminRoutes);
+app.use("/api/users", userRoutes);
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({ message: "Success" });
