@@ -1,6 +1,12 @@
 import { useAuth } from "@clerk/clerk-react"
 import PageLoader from "./components/PageLoader";
-import { Route, Routes } from "react-router";
+import { Route, Routes, Navigate } from "react-router";
+import DashboardLayout from "./layouts/DashboardLayout";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import ProductsPage from "./pages/ProductsPage";
+import OrdersPage from "./pages/OrdersPage";
+import CustomersPage from "./pages/CustomersPage";
 
 function App() {
   const { isLoaded, isSignedIn } = useAuth();
