@@ -14,7 +14,7 @@ import { upload } from "../middleware/multer.middleware.js";
 
 const router = Router();
 
-router.use(protectRoute, adminOnly);
+router.use(protectRoute);
 
 router.post('/products', upload.array('images', 3), createProduct);
 router.get('/products', getAllProducts);

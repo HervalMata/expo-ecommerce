@@ -24,11 +24,11 @@ app.use(express.json());
 
 app.use(clerkMiddleware());
 app.use(cors({
-    origin: '*', // Adjust this to your frontend URL
+    origin: ENV.CLIENT_URL, // Adjust this to your frontend URL
     credentials: true
 }));
 
-app.use("/api/inggest", serve({ client: inngest, functions }));
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 app.use("/api/admin", adminRoutes);
 app.use("/api/users", userRoutes);

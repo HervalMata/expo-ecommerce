@@ -7,7 +7,7 @@ import { protectRoute } from '../middleware/auth.middleware.js';
 
 const router = Router();
 
-router.use(protectRoute);
+//router.use(protectRoute);
 
 router.get('/', getAllProducts);
 router.get('/:id', getProductById);
