@@ -24,7 +24,7 @@ app.use(express.json());
 
 app.use(clerkMiddleware());
 app.use(cors({
-    origin: ENV.CLIENT_URL,
+    origin: '*', // Adjust this to your frontend URL
     credentials: true
 }));
 
