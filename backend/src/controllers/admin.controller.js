@@ -90,6 +90,33 @@ export async function updateProduct(req,res) {
     }
 }
 
+export const deleteProduct = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const product = await Product.findById(id);
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        if (product.images && product.images.length > 0) {
+            const deletePromises = product.images.map(imageUrl => {
+                const publicId = "products/" + imageUrl.split('/products/')[1]?.split('.')[0];
+                if (publicId) return cloudinary.uploader.destroy(publicId); 
+            });
+
+            await Promise.all(deletePromises.filter(Boolean));
+        }
+
+        await Product.findByIdAndDelete(id);
+
+        res.status(200).json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting product:', error);
+        res.status(500).json({ message: 'Internal server error', error });
+    }
+}
+
 export async function getAllOrders(_, res) {
     try {
         const orders = await Order.find()
