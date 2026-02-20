@@ -1,9 +1,9 @@
-import { requiredAuth } from "../utils/auth.utils.js";
+import { requireAuth } from "@clerk/express";
 import { User } from "../models/user.model.js";
 import { ENV } from "../config/env.js";
 
 export const protectRoute = [
-    requiredAuth(),
+    requireAuth(),
     async (req, res, next) => {
     
         try {

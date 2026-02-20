@@ -4,7 +4,7 @@ import {
     addWishlist,
     getAddresses,
     getWishlist,
-    removeAddress,
+    deleteAddress,
     removeFromWishlist,
     updateAddress
 } from "../controllers/user.controller.js";
@@ -17,7 +17,7 @@ router.use(protectRoute);
 router.post('/address', addAddress);
 router.get('/address', getAddresses);
 router.put('/address/:id', updateAddress);
-router.delete('/address/:id', removeAddress);
+router.delete('/address/:id', deleteAddress);
 
 router.post('/wishlist', addWishlist);
 router.get('/wishlist', getWishlist);

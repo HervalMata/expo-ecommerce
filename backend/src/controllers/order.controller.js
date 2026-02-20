@@ -1,6 +1,6 @@
-import { Order } from "../models/order.model";
-import { Review } from "../models/review.model";
-import { Product } from "../models/product.model";
+import { Order } from "../models/order.model.js";
+import { Review } from "../models/review.model.js";
+import { Product } from "../models/product.model.js";
 
 export async function createOrder(req, res) {
     try {

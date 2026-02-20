@@ -9,7 +9,6 @@ import { functions, inngest } from "./config/inngest.js";
 import { ENV } from "./config/env.js";
 
 import { connectDB } from "./config/db.js";
-import { inngest } from "./config/inngest.js";
 import adminRoutes from "./routes/admin.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import orderRoutes from "./routes/order.routes.js";
