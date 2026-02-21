@@ -136,7 +136,7 @@ function ProductsPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-4">
-                {products.map((product) => {
+                {products?.map((product) => {
                     const status = getStockStatusBadge(product.stock);
 
                     return (

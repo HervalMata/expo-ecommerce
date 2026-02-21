@@ -3,8 +3,9 @@ import { SignIn } from "@clerk/clerk-react";
 function LoginPage() {
     return (
         <div>
-            Login Page
-            <SignIn />
+            <div className="h-screen hero">
+                <SignIn />
+            </div>
         </div>
     );
 }
