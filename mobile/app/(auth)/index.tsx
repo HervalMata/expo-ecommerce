@@ -63,7 +63,7 @@ const AuthScreen = () => {
                 Entrando você concorda com os <Text className="text-blue-500">termos </Text>
                 {", "}
                 <Text className="text-blue-500">e politica de privacidade.</Text>
-                {", e"}
+                {", e "}
                 <Text className="text-blue-500">e uso de cookies.</Text>
             </Text>
         </View>
