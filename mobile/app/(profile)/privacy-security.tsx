@@ -258,7 +258,7 @@ function PrivacyAndSecurity() {
                                         Remover Conta?
                                     </Text>
                                     <Text className="text-text-secondary text-sm">
-                                        Remover permanentemente sua conata
+                                        Remover permanentemente sua conta
                                     </Text>
                                 </View>
                             </View>
